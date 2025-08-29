@@ -1,0 +1,230 @@
+/* ===============================
+   Base Styles and Resets
+================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdf6f0;
+  color: #333;
+}
+
+/* ===============================
+   Header and Navigation (Flexbox)
+================================= */
+header {
+  background: #ff6f61;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  flex-wrap: wrap;
+}
+
+nav ul.nav-links li {
+  /* flex-shrink: 0 allows better wrapping control */
+  flex-shrink: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  display: inline-block;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+  background-color: rgba(255, 111, 97, 0.8);
+  outline: none;
+}
+
+/* ===============================
+   Main Layout (CSS Grid)
+================================= */
+main.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #ffe0b2;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #5d4037;
+}
+
+/* Quick Facts Grid inside Sidebar */
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Each fact box */
+.fact-box {
+  background: #fff3e0;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #3e2723;
+  border: 1px solid #ffcc80;
+}
+
+/* ===============================
+   Content Area (Flexbox)
+================================= */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+/* Kingdom Cards */
+.kingdom-card {
+  background: #ffffff;
+  border: 2px solid #ffccbc;
+  border-radius: 10px;
+  padding: 1rem;
+  flex: 1 1 calc(48% - 1.5rem);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.kingdom-card:hover,
+.kingdom-card:focus-within {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.kingdom-card h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #bf360c;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.kingdom-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  max-height: 180px;
+  object-fit: cover;
+}
+
+.kingdom-card p {
+  width: 100%;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #5d4037;
+  text-align: center;
+}
+
+.kingdom-card a {
+  margin-top: auto;
+  color: #ff6f61;
+  font-weight: bold;
+  text-decoration: none;
+  align-self: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ff6f61;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.kingdom-card a:hover,
+.kingdom-card a:focus {
+  background-color: #ff6f61;
+  color: white;
+  outline: none;
+}
+
+/* ===============================
+   Footer styles
+================================= */
+footer {
+  background: #ff6f61;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+/* ===============================
+   Responsive Design - Media Queries
+================================= */
+
+/* Tablets and smaller (900px and below) */
+@media (max-width: 900px) {
+  main.grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kingdom-card {
+    flex: 1 1 100%;
+    max-width: 600px;
+  }
+
+  nav ul.nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Mobile devices (600px and below) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .sidebar {
+    font-size: 0.9rem;
+  }
+
+  .fact-box {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .kingdom-card {
+    padding: 0.8rem;
+  }
+
+  nav a {
+    padding: 0.5rem 1rem;
+  }
+}
